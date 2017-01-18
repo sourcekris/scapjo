@@ -1,5 +1,8 @@
 ### ScapJo
 
+# Author: Kris Hunt
+# Version: 0.0
+
 Combine Scapy and Django for capturing and replaying exploits in attack defense CTF scenarios. 
 
 Current status, work in progress, nothing functional yet.
