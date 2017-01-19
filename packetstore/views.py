@@ -4,7 +4,11 @@ from django.http import Http404
 from packetstore.models import Packet
 
 def index(request):
-    packets = Packet.objects.all()
+    if Packet.objects.count() > 20:
+        packets = Packet.objects.all()[Packet.objects.count()-21:Packet.objects.count()-1]
+    else:
+        packets = Packet.objects.all()
+
     return render(request, 'packetstore/index.html', {'packets':packets})
 
 def packet_details(request, id):
@@ -15,4 +19,6 @@ def packet_details(request, id):
 
     return render(request, 'packetstore/packet_details.html', {'packet':packet})
 
-# Create your views here.
+def no_return_traffic(request):
+    packets = Packet.objects.exclude(target='return traffic')
+    return render(request, 'packetstore/index.html', {'packets':packets})
