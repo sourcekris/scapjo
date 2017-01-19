@@ -1,8 +1,33 @@
+{% extends "base.html" %}
+
 {% block content %}
 
-<ul>
-    {% for packet in packets %}
-        <li><a href="{% url 'packet_details' packet.id %}">{{ packet.id }} {{ packet.timestamp }}{{ packet.title }}</a>
-    {% endfor %}
+<h1>ScapJo</h1>
+<p>The following packets have been captured recently...</p>
+
+<table class="table">
+ <thead>
+  <tr>
+   <th>ID</th>
+   <th>Timestamp</th>
+   <th>Packet Title</th>
+   <th>Source</th>
+   <th>Destination</th>
+   <th>Target</th>
+  </tr>
+ </thead>
+ <tbody>
+ {% for packet in packets %}
+    <tr>
+     <th scope="row"><a href="{% url 'packet_details' packet.id %}">{{ packet.id }}</a></th>
+     <td>{{ packet.timestamp }}</td>
+     <td>{{ packet.title }}</td>
+     <td>{{ packet.src }}:{{ packet.srcport }}</td>
+     <td>{{ packet.dst }}:{{ packet.dstport }}</td>
+     <td>{{ packet.target }}</td>
+    </tr>
+ {% endfor %}
+ </tbody>
+</table>
 
 {% endblock %}

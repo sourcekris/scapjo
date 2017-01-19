@@ -1,1 +1,12 @@
-<h3>packet details</h3>
+{% extends "base.html" %}
+
+{% block content %}
+    <h3>Packet Details: {{ packet.title }} ID: {{ packet.id }}</h3>
+    <p>Source: {{ packet.src }}:{{ packet.srcport }}<br>
+    Destination: {{ packet.dst }}:{{ packet.dstport }}<br>
+    Protocol: {{ packet.protocol }}<br>
+    Target: {{ packet.target }}</p>
+    <h4>Packet Data:</h4>
+    <p> <pre>
+{{ packet.packetdata }}</pre>
+{% endblock %}
