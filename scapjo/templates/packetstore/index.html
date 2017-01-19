@@ -1,0 +1,8 @@
+{% block content %}
+
+<ul>
+    {% for packet in packets %}
+        <li><a href="{% url 'packet_details' packet.id %}">{{ packet.id }} {{ packet.timestamp }}{{ packet.title }}</a>
+    {% endfor %}
+
+{% endblock %}

@@ -56,7 +56,7 @@ ROOT_URLCONF = 'scapjo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['packetstore/templates'],
+        'DIRS': ['scapjo/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
